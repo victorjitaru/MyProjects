@@ -1,0 +1,12 @@
+111 Cloverfield Lane
+4
+120.00
+222 Mikeload Street
+3
+90.00
+6698 Buna Street
+5
+150.00
+79 Podisului Street
+4
+180.00
