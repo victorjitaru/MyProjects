@@ -1,7 +1,10 @@
 public class MergeSorting {
+
+
     public void sort(int[] array) {
         mergeSortArray(array, 0, array.length - 1);
     }
+
 //fara calcularea mijlocului (lua valori ciudate)
     private void mergeSortArray(int[] array, int start, int end) {
         if (end - start > 1) {
@@ -24,12 +27,17 @@ public class MergeSorting {
         array[j] = temp;
     }
 
-
     private void merge(int[] array, int start, int end) {
         int i = start;
         int j = ((start + end) / 2) + 1;
-        int position = 0;
+/*old
         int[] buffer = new int[end + 1];
+*/
+//new
+        int bufferLength = (end-start) + 1;
+        int[] buffer = new int[bufferLength];
+//end New
+        int position = 0;
         while (i <= ((start + end) / 2) && j <= end) {
             if (array[i] < array[j]) {
                 buffer[position] = array[i];
@@ -40,22 +48,29 @@ public class MergeSorting {
             }
             position++;
         }
-        while (j <= end) {
+        while (j <= end && i > (start + end)/2) {
             buffer[position] = array[j];
             j++;
             position++;
         }
-        while (i <= (start + end) / 2) {
+        while (i <= (start + end) / 2 && j > end) {
             buffer[position] = array[i];
             i++;
             position++;
         }
-        copyArray(buffer, array, end);
+        copyArray(buffer, array, start, bufferLength);
     }
-
+/*old
     private void copyArray(int[] source, int[] dest, int arrayLength) {
         for (int i = 0; i < arrayLength + 1; i++) {
             dest[i] = source[i];
+        }
+    }
+*/
+//new
+    private void copyArray(int[] source, int[] dest, int start, int arrayLength){
+        for (int i = 0; i < arrayLength; i++){
+            dest[start + i] = source[i];
         }
     }
 }

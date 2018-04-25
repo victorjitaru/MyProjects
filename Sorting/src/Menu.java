@@ -22,6 +22,7 @@ public class Menu {
         System.out.println("2.Display array");
         System.out.println("3.BubbleSort array");
         System.out.println("4.MergeSort array");
+        System.out.println("5.QuickSort array");
         System.out.println("0.Exit");
         System.out.println();
     }
@@ -37,7 +38,8 @@ public class Menu {
         ArrayStuff arrays = new ArrayStuff();
         BubbleSorting bs = new BubbleSorting();
         MergeSorting ms = new MergeSorting();
-        if (option <= 4 && option >= 0) {
+        QuickSorting qs = new QuickSorting();
+        if (option <= 5 && option >= 0) {
             switch (option) {
                 case 1:
                     return arrays.readArray();
@@ -50,6 +52,9 @@ public class Menu {
                 case 4:
                     ms.sort(array);
                     break;
+                case 5:
+                    qs.sort(array);
+                    break;
                 case 0:
                 default:
             }
@@ -60,5 +65,4 @@ public class Menu {
         }
         return array;
     }
-
 }
