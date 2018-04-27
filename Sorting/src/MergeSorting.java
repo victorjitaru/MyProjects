@@ -30,13 +30,8 @@ public class MergeSorting {
     private void merge(int[] array, int start, int end) {
         int i = start;
         int j = ((start + end) / 2) + 1;
-/*old
-        int[] buffer = new int[end + 1];
-*/
-//new
         int bufferLength = (end-start) + 1;
         int[] buffer = new int[bufferLength];
-//end New
         int position = 0;
         while (i <= ((start + end) / 2) && j <= end) {
             if (array[i] < array[j]) {
@@ -60,14 +55,7 @@ public class MergeSorting {
         }
         copyArray(buffer, array, start, bufferLength);
     }
-/*old
-    private void copyArray(int[] source, int[] dest, int arrayLength) {
-        for (int i = 0; i < arrayLength + 1; i++) {
-            dest[i] = source[i];
-        }
-    }
-*/
-//new
+
     private void copyArray(int[] source, int[] dest, int start, int arrayLength){
         for (int i = 0; i < arrayLength; i++){
             dest[start + i] = source[i];
